@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/../public'));
 
-
+//
 // get the whole list of restaurants
 app.get('/api/restaurants', function(req, res){
   Restaurant_Gallery.find(function(err, results){
