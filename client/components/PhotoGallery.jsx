@@ -1,16 +1,35 @@
 import React from 'react';
+/*import Photo from './Photo.jsx';*/
+//import withModal from './withModal.js'
 
 
 class PhotoGallery extends React.Component {
-	constructor(){
-		super();
-	}
+  onClickPic(){
+    alert('was clicked');
+  }
+  render() {
+    let Slide
+    let imageHolder = null;
+    let imageCollec = [];
+    for (var key in this.props.imageList) {
+      let imageArr = this.props.imageList[key].images_array;
+      for (var key in imageArr) {
+        imageCollec.push(imageArr[key]);
+      }
+    }
 
-	render(){
-		return(
-          <img src="./images/img1.jpg"/>
-		);
-	}
+    
+    imageHolder = imageCollec.map(respic => {
+      return <img key={respic.image_id} src={respic.image_url} width='300' height='200' />
+    })
+    console.log('hello',imageHolder);
+
+    return (
+      <div>
+        {imageHolder}
+      </div>
+    );
+  }
 }
 
 
