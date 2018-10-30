@@ -4,6 +4,7 @@ import $ from 'jquery';
 import PhotoGallery from './components/PhotoGallery.jsx';
 import restName from './components/restName';
 
+
 //import './../public/style.css';
 
 
@@ -13,28 +14,26 @@ class App extends React.Component {
     this.state = {
       info: '',
       view: 'mainPage',
-      restName,
+      restName: restName
     };
     this.changeView = this.changeView.bind(this);
   }
 
-  // componentDidMount(){
-  // 	$.ajax({
-  //       url: '/api/restaurants/1',
-  //       method: 'GET',
-  //       success: (res_images)=>{
-  //       	this.setState({info: res_images});
-  //       }
-  // 	});
-  //    }
+
   changeView(id, options) {
-    $.ajax({
-      url: `/api/restaurants/${id}`,
-      method: 'GET',
-      success: (resImages) => {
-        this.setState({ info: resImages, view: options });
-      },
-    });
+    if (id === 999) {
+      this.setState({ info: '', view: options });
+    }
+    else {
+
+      $.ajax({
+        url: `/api/restaurants/${id}`,
+        method: 'GET',
+        success: (resImages) => {
+          this.setState({ info: resImages, view: options });
+        },
+      });
+    }
   }
 
   renderView() {
@@ -43,7 +42,7 @@ class App extends React.Component {
     if (view === 'imagePage') {
       return (
         <div>
-          <button onClick={() => this.changeView(0, 'mainPage')}>Return to main</button>
+          <button onClick={() => this.changeView(999, 'mainPage')}>Return to main</button>
           <div>
             <PhotoGallery imageList={this.state.info} />
           </div>
@@ -54,7 +53,7 @@ class App extends React.Component {
     return (
       <div>
         {this.state.restName.map((pic) => (
-          <button onClick={() => this.changeView(pic.id, 'imagePage')}>{pic.name}</button>
+          <button key={pic.id} onClick={() => this.changeView(pic.id, 'imagePage')}>{pic.name}</button>
         ))}
       </div>
     );
@@ -63,7 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-       
+
         <div className="image-container">
           {this.renderView()}
         </div>
