@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db = require('./myConnection.js'); 
+const db = require('./myConnection.js');
 
 mongoose.Promise = global.Promise;
 
@@ -17,8 +17,8 @@ const restaurantSchema = new mongoose.Schema({
 
 const RestaurentGallery = mongoose.model('restaurant', restaurantSchema);
 
-let find = (cb) => {
-  RestaurentGallery.find({},cb);
-}
+const find = (cb) => {
+  RestaurentGallery.find({}, cb);
+};
 
 module.exports = RestaurentGallery;

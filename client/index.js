@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import PhotoGallery from './components/PhotoGallery.jsx';
+import Gallery from './components/Gallery.jsx';
 import restName from './components/restName';
 
 
-//import './../public/style.css';
+// import './../public/style.css';
 
 
 class App extends React.Component {
@@ -14,22 +14,23 @@ class App extends React.Component {
     this.state = {
       info: '',
       view: 'mainPage',
-      restName: restName
+      restName,
     };
     this.changeView = this.changeView.bind(this);
   }
 
 
   changeView(id, options) {
-    if (id === 999) {
+    alert(id);
+    if (id === 888) {
       this.setState({ info: '', view: options });
-    }
-    else {
-
+    } else {
+      alert(id);
       $.ajax({
         url: `/api/restaurants/${id}`,
         method: 'GET',
         success: (resImages) => {
+          console.log(resImages);
           this.setState({ info: resImages, view: options });
         },
       });
@@ -39,12 +40,12 @@ class App extends React.Component {
   renderView() {
     const { view } = this.state;
 
-    if (view === 'imagePage') {
+    if (view === 'imagesPage') {
       return (
         <div>
-          <button onClick={() => this.changeView(999, 'mainPage')}>Return to main</button>
+          <button onClick={() => this.changeView(888, 'mainPage')}>Return to main</button>
           <div>
-            <PhotoGallery imageList={this.state.info} />
+            <Gallery imageList={this.state.info} />
           </div>
 
         </div>
@@ -52,8 +53,8 @@ class App extends React.Component {
     }
     return (
       <div>
-        {this.state.restName.map((pic) => (
-          <button key={pic.id} onClick={() => this.changeView(pic.id, 'imagePage')}>{pic.name}</button>
+        {this.state.restName.map(pic => (
+          <button key={pic.id} onClick={() => this.changeView(pic.id, 'imagesPage')}>{pic.name}</button>
         ))}
       </div>
     );
@@ -63,7 +64,7 @@ class App extends React.Component {
     return (
       <div>
 
-        <div className="image-container">
+        <div>
           {this.renderView()}
         </div>
       </div>
@@ -72,4 +73,5 @@ class App extends React.Component {
 }
 
 
-ReactDOM.render(<App />, document.getElementById('photo'));
+// ReactDOM.render(<Gallery />, document.querySelector('.gallery-container'));
+ReactDOM.render(<App />, document.querySelector('.gallery-container'));

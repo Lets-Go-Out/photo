@@ -22,6 +22,5 @@ for (i = 1; i < 101; i++) {
   }
   data.images_array = images_array;
   ourfaker.push(data);
-  
 }
 Restaurent_Gallery.create(ourfaker);
