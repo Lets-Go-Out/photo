@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import Gallery from './components/Gallery.jsx';
-import restName from './components/restName';
-
-
-// import './../public/style.css';
+import Report from  './components/Report.jsx';
+import '../public/style.css';
 
 
 class App extends React.Component {
@@ -14,64 +12,50 @@ class App extends React.Component {
     this.state = {
       info: '',
       view: 'mainPage',
-      restName,
+      //showModal: false
     };
+
     this.changeView = this.changeView.bind(this);
+    // this.handleCloseModal = this.handleCloseModal.bind(this);
+    // this.handleOpenModal = this.handleOpenModal.bind(this);
   }
 
-
-  changeView(id, options) {
-    alert(id);
-    if (id === 888) {
-      this.setState({ info: '', view: options });
-    } else {
-      alert(id);
-      $.ajax({
-        url: `/api/restaurants/${id}`,
-        method: 'GET',
-        success: (resImages) => {
-          console.log(resImages);
-          this.setState({ info: resImages, view: options });
-        },
-      });
-    }
+  componentDidMount() {
+    const id2 = window.location.href.slice(38, -1);
+    console.log(id2);
+    this.changeView(id2);
   }
 
-  renderView() {
-    const { view } = this.state;
-
-    if (view === 'imagesPage') {
-      return (
-        <div>
-          <button onClick={() => this.changeView(888, 'mainPage')}>Return to main</button>
-          <div>
-            <Gallery imageList={this.state.info} />
-          </div>
-
-        </div>
-      );
-    }
-    return (
-      <div>
-        {this.state.restName.map(pic => (
-          <button key={pic.id} onClick={() => this.changeView(pic.id, 'imagesPage')}>{pic.name}</button>
-        ))}
-      </div>
-    );
+  
+  changeView(id) {
+    $.ajax({
+      url: `http://localhost:3004/api/restaurants/${id}/hello`,
+      method: 'GET',
+      success: (resImages) => {
+        // console.log('resImages', resImages);
+        this.setState({ info: resImages });
+        //console.log(this.state.info);
+      },
+    });
   }
 
   render() {
+    let output;
+    console.log('*****', this.state.info);
+    if (this.state.info) {
+      output = <Gallery imageList={this.state.info} />;
+    } else {
+      output = <div>Loading...</div>;
+    }
     return (
       <div>
-
         <div>
-          {this.renderView()}
+          {output}
+          
         </div>
       </div>
     );
   }
 }
 
-
-// ReactDOM.render(<Gallery />, document.querySelector('.gallery-container'));
-ReactDOM.render(<App />, document.querySelector('.gallery-container'));
+ReactDOM.render(<App />, document.getElementById('gallery-container'));

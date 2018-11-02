@@ -7,6 +7,9 @@ module.exports = {
     filename: 'bundle.js',
 
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   mode: 'development',
   module: {
     rules: [
@@ -21,6 +24,11 @@ module.exports = {
             }],
           },
         },
+      },
+
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
