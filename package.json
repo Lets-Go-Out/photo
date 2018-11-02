@@ -12,7 +12,14 @@
     "start": "nodemon server/serverIndex.js",
     "seed": "node ./database/seed.js",
     "lint": "eslint --ignore-path .gitignore . --fix",
-    "test": "jest --coverage --"
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ]
   },
   "dependencies": {
     "babel-jest": "^23.6.0",
@@ -34,7 +41,7 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
@@ -46,13 +53,12 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "react-modal": "^3.6.1",
     "style-loader": "^0.23.1",
+    "webpack-babel-jest": "^1.0.4",
     "webpack-cli": "^3.1.2"
-  },
-  "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>test/setupTests.js"
   }
 }
