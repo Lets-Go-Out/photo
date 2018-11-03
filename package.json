@@ -12,14 +12,17 @@
     "start": "nodemon server/serverIndex.js",
     "seed": "node ./database/seed.js",
     "lint": "eslint --ignore-path .gitignore . --fix",
-    "test": "jest"
+    "test": "jest --coverage --"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
     "testFileExtensions": [
       "es6",
       "js"
-    ]
+    ],
+    "globals": {
+       "window": true
+     }
   },
   "dependencies": {
     "babel-jest": "^23.6.0",
