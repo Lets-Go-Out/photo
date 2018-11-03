@@ -72,13 +72,12 @@ body {
 }
 .flag{
   float:right;
+  position: relative;
 }
 .myModal{
   background: white;
 }
-.custom-dialog{
-  
-}
+
 .btn {
   display: inline-block;
   padding: 6px 12px;
