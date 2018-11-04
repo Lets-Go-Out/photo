@@ -94,12 +94,16 @@ body {
   user-select: none;
   background-image: none;
   border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 3px;
 
 }
+
 .btn-primary {
   color: #fff;
   background-color: #60b2d0;
   border-color: #2e6da4
+
 }
 
 .btn-default {

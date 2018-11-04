@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import React from 'react';
 import GalleryModal from './GalleryModal';
 import '../../public/style.css';
@@ -9,12 +8,15 @@ class Gallery extends React.Component {
     super(props);
     this.state = {
       currentIndex: null,
+      showModal: false,
       imgUrls: [],
     };
     this.closeModal = this.closeModal.bind(this);
     this.findNext = this.findNext.bind(this);
     this.findPrev = this.findPrev.bind(this);
     this.renderImageContent = this.renderImageContent.bind(this);
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -39,7 +41,7 @@ class Gallery extends React.Component {
   }
 
   closeModal() {
-    this.setState({ currentIndex: null });
+    this.setState({ currentIndex: null, showModal: false });
   }
 
   findPrev() {
@@ -52,6 +54,14 @@ class Gallery extends React.Component {
         <img alt={src.description} src={src.image_url} key={src._id} width="400" height="300" />
       </div>
     );
+  }
+
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
   }
 
   render() {
@@ -67,6 +77,9 @@ class Gallery extends React.Component {
           hasPrev={this.state.currentIndex > 0}
           hasNext={this.state.currentIndex + 1 && this.state.currentIndex + 1 < this.state.imgUrls.length}
           src={this.state.imgUrls[this.state.currentIndex]}
+          showModal={this.state.showModal}
+          handleOpenModal={this.handleOpenModal}
+          handleCloseModal={this.handleCloseModal}
         />
       </div>
     );

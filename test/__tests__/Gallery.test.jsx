@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import Gallery from '../../client/components/Gallery';
-// import GalleryModal from './../../client/components/GalleryModal.jsx';
 
 
 const imageList = {
@@ -42,7 +41,7 @@ test("confirm properties of Gallery's props", () => {
 test('should have a right amount of states', () => {
   const wrapper = shallow(<Gallery />);
   const stateLen = Object.keys(wrapper.state()).length;
-  expect(stateLen).toEqual(2);
+  expect(stateLen).toEqual(3);
 });
 test('checking on openModal function of <Gallery/>', () => {
   const wrapper = shallow(<Gallery />);

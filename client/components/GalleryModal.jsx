@@ -3,52 +3,53 @@ import Report from './Report';
 import '../../public/style.css';
 
 
-class GalleryModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showModal: false,
-    };
-    this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
+const GalleryModal = (props) => {
+  if (!props.src) {
+    return null;
   }
 
-  handleOpenModal() {
-    this.setState({ showModal: true });
-  }
-
-  handleCloseModal() {
-    this.setState({ showModal: false });
-  }
-
-  render() {
-    if (!this.props.src) {
-      return null;
-    }
-    return (
-      <div>
-        <div className="modal-overlay" />
-        <div className="modal">
-          <div key={this.props.src._id} className="modal-body">
-            <a href="#" className="modal-close" onClick={this.props.closeModal}>&times;</a>
-            {this.props.hasPrev && <a href="#" className="modal-prev" onClick={this.props.findPrev}>&lsaquo;</a>}
-            {this.props.hasNext && <a href="#" className="modal-next" onClick={this.props.findNext}>&rsaquo;</a>}
-            <div className="image-sec">
-              <img alt={this.props.src.description} key={this.props.src._id} src={this.props.src.image_url} width="630" height="550" />
-              <div>
-                <img className="flag" src="flag.png" alt="flaggy" onClick={() => this.handleOpenModal('open')} />
-                <Report
-                  showModal={this.state.showModal}
-                  handleCloseModal={this.handleCloseModal}
-                />
-              </div>
-              <p>{this.props.src.description}</p>
-              <p>{this.props.src.taken_by}</p>
+  return (
+    <div>
+      <div className="modal-overlay" />
+      <div className="modal">
+        <div key={props.src._id} className="modal-body">
+          <a href="#" className="modal-close" onClick={props.closeModal}>&times;</a>
+          {props.hasPrev && <a href="#" className="modal-prev" onClick={props.findPrev}>&lsaquo;</a>}
+          {props.hasNext && <a href="#" className="modal-next" onClick={props.findNext}>&rsaquo;</a>}
+          <div className="image-sec">
+            <table>
+              <tbody>
+                <tr>
+                  <td colSpan="2">
+                    <img alt={props.src.description} key={props.src._id} src={props.src.image_url} width="630" height="550" />
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left">
+                    {props.src.description}
+                  </td>
+                  <td align="right" valign="top" rowSpan="2">  
+                    <img className="flag" src="flag.png" alt="flaggy" onClick={props.handleOpenModal} />
+                  </td>
+                </tr>
+                <tr>
+                  <td fontSize="46px">
+                    {props.src.taken_by}
+                  </td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+              <Report
+                showModal={props.showModal}
+                handleCloseModal={props.handleCloseModal}
+              />
             </div>
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
+  
 export default GalleryModal;

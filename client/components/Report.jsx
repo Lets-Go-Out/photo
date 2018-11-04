@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import PropTypes from 'prop-types';
 // ReactModal.setAppElement('#gallery-container');
 
 const modalStyle = {
@@ -17,7 +16,7 @@ const modalStyle = {
   },
 };
 
-function Report(props) {
+const Report = (props) => {
   const { showModal, handleCloseModal } = props;
   return (
     <div>
@@ -31,7 +30,7 @@ function Report(props) {
           style={modalStyle}
         >
           <div className="ReportDiv">
-            <h4>Report a photo problem</h4>
+            <h4 align="left">Report a photo problem</h4>
             <hr />
             <button className="btn btn-primary" type="button" onClick={() => props.handleCloseModal()}>
               Unrelated to restaurant
@@ -55,10 +54,5 @@ function Report(props) {
     </div>
   );
 }
-
-Report.propTypes = {
-  showModal: PropTypes.bool.isRequired,
-  handleCloseModal: PropTypes.func.isRequired,
-};
 
 export default Report;
