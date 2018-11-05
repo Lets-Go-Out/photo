@@ -1,6 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const faker = require('faker');
+var proxy = require('express-http-proxy');
+ 
+//app.use('/replace with my proxy', proxy('url'));
+
 
 const Restaurant_Gallery = require('../database/Image.js');
 
@@ -9,6 +13,7 @@ const PORT = 3004;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+//app.use('/replace with my proxy', proxy('url'));
 
 
 app.use('/api/restaurants/:rest_id', express.static(`${__dirname}/../public`));

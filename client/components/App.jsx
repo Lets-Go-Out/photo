@@ -4,7 +4,7 @@ import Gallery from './Gallery';
 import '../../public/style.css';
 
 
-class App extends React.Component {
+class PhotoApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,4 +41,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default PhotoApp;

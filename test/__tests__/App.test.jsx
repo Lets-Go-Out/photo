@@ -1,15 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from '../../client/components/App';
+import PhotoApp from '../../client/components/App';
 
 
 test('should render correctly with props', () => {
-  const component = shallow(<App />);
+  const component = shallow(<PhotoApp />);
   expect(component.exists()).toBe(true);
 });
 
 test('checking on render function of <App/>', () => {
-  const wrapper = shallow(<App />);
+  const wrapper = shallow(<PhotoApp />);
   wrapper.instance().render();
 });
 
@@ -19,7 +19,7 @@ const mock = {
   images_array: [],
 };
 test('should display loading until data arrives', async () => {
-  const wrapper = shallow(<App info={mock} />);
+  const wrapper = shallow(<PhotoApp info={mock} />);
   expect(wrapper.html()).toBe('<div>Loading...</div>');
   await Promise.resolve();
   expect(wrapper.html()).toBe('<div>imageList</div>');
