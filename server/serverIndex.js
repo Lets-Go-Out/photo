@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use('/replace with my proxy', proxy('url'));
 
 
-app.use('/api/restaurants/:rest_id', express.static(`${__dirname}/../public`));
+app.use('/restaurants/:rest_id', express.static(`${__dirname}/../public`));
 
 
 // get the whole list of restaurants
@@ -31,7 +31,7 @@ app.use('/api/restaurants/:rest_id', express.static(`${__dirname}/../public`));
 // });
 
 // get info of specific restaurant by id
-app.get('/api/restaurants/:rest_id/hello', (req, res) => {
+app.get('/restaurants/:rest_id/gallery', (req, res) => {
   Restaurant_Gallery.find({ res_id: req.params.rest_id },
     (err, response) => {
       if (err) {

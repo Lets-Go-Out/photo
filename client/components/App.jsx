@@ -15,7 +15,7 @@ class PhotoApp extends React.Component {
   componentDidMount() {
     const id2 = this.props.resId;
     $.ajax({
-      url: `http://localhost:3004/api/restaurants/${id2}/hello`,
+      url: `http://localhost:3004/restaurants/${id2}/gallery`,
       method: 'GET',
       success: (resImages) => {
         this.setState({ info: resImages });
