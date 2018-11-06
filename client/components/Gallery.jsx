@@ -3,7 +3,7 @@ import GalleryModal from "./GalleryModal";
 import { resImages } from "./fetch.js";
 import "../../public/style.css";
 
-//
+///
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
