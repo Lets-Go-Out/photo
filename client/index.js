@@ -3,6 +3,5 @@ import ReactDOM from 'react-dom';
 
 import PhotoApp from './components/App';
 
-const id2 = window.location.href.slice(35, -1);
-
-ReactDOM.render(<PhotoApp resId={id2} />, document.getElementById('gallery-container'));
+//
+ReactDOM.render(<PhotoApp />, document.getElementById('gallery-container'));
