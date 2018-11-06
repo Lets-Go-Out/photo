@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 // ReactModal.setAppElement('#gallery-container');
-
+//
 const modalStyle = {
   content: {
     position: 'fixed',

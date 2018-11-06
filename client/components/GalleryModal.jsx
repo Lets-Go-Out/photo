@@ -2,7 +2,7 @@ import React from 'react';
 import Report from './Report';
 import '../../public/style.css';
 
-
+//
 const GalleryModal = (props) => {
   if (!props.src) {
     return null;
