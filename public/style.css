@@ -120,3 +120,8 @@ body {
     height:auto;
     display:inline-block;
 }
+.view{
+  color: red;
+  position:relative;
+  left: 780px;
+}
