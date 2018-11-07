@@ -3,7 +3,6 @@ import GalleryModal from "./GalleryModal";
 import { resImages } from "./fetch.js";
 import "../../public/style.css";
 
-///
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +31,7 @@ class Gallery extends React.Component {
     this.setState(obj);
   }
   componentDidMount() {
-    resImages(this.props.id, this.fetchHandler);
+    resImages(this.state.id, this.fetchHandler);
   }
 
   openModal(index) {
@@ -58,8 +57,8 @@ class Gallery extends React.Component {
           alt={src.description}
           src={src.image_url}
           key={src._id}
-          width="400"
-          height="300"
+          width="280"
+          height="180"
         />
       </div>
     );
