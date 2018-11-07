@@ -12,14 +12,14 @@ body {
   grid-gap: 8px;
   max-width: 800px;
   width: 100%;
-  margin: 0 auto;
+  margin: 20 auto;
 }
 .gallery-grid div {
   position: relative;
   cursor: pointer;
 }
 
-.modal {
+.modal1 {
   position: fixed;
   z-index: 999;
   width: 50%;
@@ -30,7 +30,7 @@ body {
 
 }
 
-.modal-overlay {
+.modal1-overlay {
   position: fixed;
   height: 100%;
   width: 100%;
@@ -38,7 +38,7 @@ body {
   top: 0;
   left: 0;
 }
-.modal-body a {
+.modal1-body a {
   position: absolute;
   display: inline;
   color: white;
@@ -49,22 +49,22 @@ body {
   height: 40px; width: 40px;
   text-align: center;
 }
-.modal-body .modal-close {
+.modal1-body .modal1-close {
   right: 0; top: -40px;
   border-radius: 0 0 0 5px;
 }
-.modal-body .modal-next,
-.modal-body .modal-prev {
+.modal1-body .modal1-next,
+.modal1-body .modal1-prev {
   right: 0; top: calc(50% - 25px);
   height: 50px;
   line-height: 40px;
   font-size: 60px;
 }
-.modal-body .modal-prev {
+.modal1-body .modal1-prev {
   left: -70px;
   right: auto;
 }
-.modal-body {
+.modal1-body {
   position: relative;
 }
 .image-sec{

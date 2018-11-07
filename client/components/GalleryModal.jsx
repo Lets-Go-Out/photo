@@ -10,12 +10,12 @@ const GalleryModal = (props) => {
 
   return (
     <div>
-      <div className="modal-overlay" />
-      <div className="modal">
-        <div key={props.src._id} className="modal-body">
-          <a href="#" className="modal-close" onClick={props.closeModal}>&times;</a>
-          {props.hasPrev && <a href="#" className="modal-prev" onClick={props.findPrev}>&lsaquo;</a>}
-          {props.hasNext && <a href="#" className="modal-next" onClick={props.findNext}>&rsaquo;</a>}
+      <div className="modal1-overlay" />
+      <div className="modal1">
+        <div key={props.src._id} className="modal1-body">
+          <a href="#" className="modal1-close" onClick={props.closeModal}>&times;</a>
+          {props.hasPrev && <a href="#" className="modal1-prev" onClick={props.findPrev}>&lsaquo;</a>}
+          {props.hasNext && <a href="#" className="modal1-next" onClick={props.findNext}>&rsaquo;</a>}
           <div className="image-sec">
             <table>
               <tbody>

@@ -25,7 +25,7 @@ const Report = (props) => {
           isOpen={showModal}
           contentLabel="Report"
           onRequestClose={handleCloseModal}
-          className="modal"
+          className="modal1"
           overlayClassName="overlay"
           style={modalStyle}
         >
