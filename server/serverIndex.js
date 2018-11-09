@@ -4,6 +4,8 @@ const faker = require("faker");
 var proxy = require("express-http-proxy");
 const cors = require("cors");
 const path = require("path");
+const ourfaker = require("../database/seed.js");
+const Restaurent_Gallery = require("../database/Image.js");
 
 //app.use('/replace with my proxy', proxy('url'));
 ///
@@ -18,7 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use('/replace with my proxy', proxy('url'));
 
 //app.use(express.static(path.join(__dirname, `../public`)));
-app.use('/restaurants/:rest_id', express.static(`${__dirname}/../public`));
+Restaurent_Gallery.create(ourfaker);
+app.use("/restaurants/:rest_id", express.static(`${__dirname}/../public`));
 
 // get the whole list of restaurants
 // app.get('/api/restaurants', (req, res) => {

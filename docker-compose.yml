@@ -1,0 +1,15 @@
+version: "3"
+services:
+  photodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  photos:
+    build: .
+    environment:
+      HOST_WAITS: photodb:27017
+    ports:
+      - 3004:3004
+    depends_on:
+      - photodb
