@@ -182,10 +182,15 @@ class Gallery extends React.Component {
   handleCloseModal() {
     this.setState({ showModal: false });
   }
+  
+  viewOpen(){
+    this.setState({currentIndex: 0})
+  }
 
   render() {
     return (
       <div>
+        <h2>Photos</h2><a href="#" className="view" onClick={this.viewOpen}>View more</a>
         <div className="gallery-grid">
           {this.state.imgUrls.map(this.renderImageContent)}
         </div>
