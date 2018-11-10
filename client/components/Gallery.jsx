@@ -124,6 +124,7 @@ class Gallery extends React.Component {
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.fetchHandler = this.fetchHandler.bind(this);
+    this.viewOpen = this.viewOpen.bind(this);
     this.state = {
       id: id2,
       currentIndex: null,
