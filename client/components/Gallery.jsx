@@ -111,11 +111,15 @@ import GalleryModal from "./GalleryModal";
 import { resImages } from "./fetch.js";
 import "../../public/style.css";
 
+function genRandomNumber() {
+  return Math.floor(Math.random() * Math.floor(100));
+}
+
 class Gallery extends React.Component {
   constructor(props) {
     const {pathname} = window.location;
     const pathChunks = pathname.split('/');
-    const id2 = pathChunks[2] || '25';
+    const id2 = genRandomNumber();
     super(props);
     this.closeModal = this.closeModal.bind(this);
     this.findNext = this.findNext.bind(this);

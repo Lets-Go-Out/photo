@@ -18,7 +18,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use('/replace with my proxy', proxy('url'));
-
+////
 //app.use(express.static(path.join(__dirname, `../public`)));
 Restaurent_Gallery.create(ourfaker);
 app.use(express.static(`${__dirname}/../public`));
