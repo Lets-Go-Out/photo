@@ -32,7 +32,7 @@ class Gallery extends React.Component {
     this.setState(obj);
   }
   componentDidMount() {
-    resImages(this.props.id, this.fetchHandler);
+    resImages(this.state.id, this.fetchHandler);
   }
 
   openModal(index) {
