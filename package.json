@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack",
-    "start": "nodemon server/serverIndex.js",
+    "start": "node server/serverIndex.js",
     "seed": "node ./database/seed.js",
     "lint": "eslint --ignore-path .gitignore . --fix",
     "test": "jest --coverage --"
