@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(express.static(path.join(__dirname, `../public`)));
 Restaurent_Gallery.create(ourfaker);
-app.use(express.static(`${__dirname}/../public`));
+app.use('/restaurants/:rest_id',express.static(`${__dirname}/../public`));
 
 // get the whole list of restaurants
 // app.get('/api/restaurants', (req, res) => {

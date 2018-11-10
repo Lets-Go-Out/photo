@@ -10,10 +10,10 @@ class PhotoApp extends React.Component {
   }
 
   render() {
-    const id2 = window.location.href.slice(61, -1);
+    //const id2 = window.location.href.slice(61, -1);
     return (
       <div>
-        <Gallery id={id2}/>
+        <Gallery/>
       </div>
     );
   }
