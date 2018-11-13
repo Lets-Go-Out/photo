@@ -142,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resImages\", function() { return resImages; });\nvar $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"); ////////\n\n\nvar resImages = function resImages(rest_id, cb) {\n  $.ajax({\n    //url: `http://ec2-54-164-63-168.compute-1.amazonaws.com/restaurants/${rest_id}/gallery`,\n    url: \"ec2-54-172-15-29.compute-1.amazonaws.com/restaurants/\".concat(rest_id, \"/gallery\"),\n    method: \"GET\",\n    success: function success(resImages) {\n      cb(rest_id, resImages);\n    }\n  });\n};\n\n//# sourceURL=webpack:///./client/components/fetch.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resImages\", function() { return resImages; });\nvar $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"); ////////\n\n\nvar resImages = function resImages(rest_id, cb) {\n  $.ajax({\n    //url: `http://ec2-54-164-63-168.compute-1.amazonaws.com/restaurants/${rest_id}/gallery`,\n    // url: `ec2-54-172-15-29.compute-1.amazonaws.com/restaurants/${rest_id}/gallery`,\n    url: \"http://ec2-54-210-72-137.compute-1.amazonaws.com/restaurants/\".concat(rest_id, \"/gallery\"),\n    method: \"GET\",\n    success: function success(resImages) {\n      cb(rest_id, resImages);\n    }\n  });\n};\n\n//# sourceURL=webpack:///./client/components/fetch.js?");
 
 /***/ }),
 
