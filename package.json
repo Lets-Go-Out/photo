@@ -5,7 +5,8 @@
   "author": "",
   "license": "",
   "engines": {
-    "node": ">=6.13.0"
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "scripts": {
     "dev": "webpack --watch",
@@ -24,6 +25,16 @@
       "window": true
     }
   },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JISHAX/photo.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
   "dependencies": {
     "babel-jest": "^23.6.0",
     "body-parser": "^1.18.3",

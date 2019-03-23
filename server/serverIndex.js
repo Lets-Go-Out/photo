@@ -12,7 +12,7 @@ const Restaurent_Gallery = require("../database/Image.js");
 const Restaurant_Gallery = require("../database/Image.js");
 
 const app = express();
-const PORT = 3004;
+const PORT = process.env.PORT || '3004';
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -51,3 +51,5 @@ app.get("/restaurants/:rest_id/gallery", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Now are listening on port ${PORT}`);
 });
+
+
