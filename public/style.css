@@ -50,7 +50,7 @@ body {
   text-align: center;
 }
 .modal1-body .modal1-close {
-  right: 20; top: 40px;
+  right: 40px; top: -40px;
   border-radius: 0 0 0 5px;
   position:fixed;
 }
