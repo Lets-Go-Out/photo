@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(express.static(path.join(__dirname, `../public`)));
 Restaurent_Gallery.create(ourfaker);
-app.use("/restaurants/:rest_id", express.static(`${__dirname}/../public`));
+//app.use("/restaurants/:rest_id", express.static(`${__dirname}/../public`));
+app.use("/", express.static(`${__dirname}/../public`));
 
 // get the whole list of restaurants
 // app.get('/api/restaurants', (req, res) => {
@@ -35,7 +36,8 @@ app.use("/restaurants/:rest_id", express.static(`${__dirname}/../public`));
 // });
 
 // get info of specific restaurant by id
-app.get("/restaurants/:rest_id/gallery", (req, res) => {
+///restaurants/:rest_id/gallery
+app.get("/:rest_id", (req, res) => {
   Restaurant_Gallery.findOne(
     { res_id: req.params.rest_id },
     (err, response) => {

@@ -142,7 +142,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resImages\", function() { return resImages; });\nvar $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"); //\n\n\nvar resImages = function resImages(rest_id, cb) {\n  $.ajax({\n    url: \"http://localhost:3004/restaurants/\".concat(rest_id, \"/gallery\"),\n    method: \"GET\",\n    success: function success(resImages) {\n      cb(rest_id, resImages);\n    }\n  });\n};\n\n//# sourceURL=webpack:///./client/components/fetch.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"resImages\", function() { return resImages; });\nvar $ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"); //`http://localhost:3004/restaurants/${rest_id}/gallery`\n\n\nvar resImages = function resImages(rest_id, cb) {\n  $.ajax({\n    url: \"http://localhost:3004/15\",\n    method: \"GET\",\n    success: function success(resImages) {\n      cb(rest_id, resImages);\n    }\n  });\n};\n\n//# sourceURL=webpack:///./client/components/fetch.js?");
 
 /***/ }),
 
