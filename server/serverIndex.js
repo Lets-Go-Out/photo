@@ -20,7 +20,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use('/replace with my proxy', proxy('url'));
 
 //app.use(express.static(path.join(__dirname, `../public`)));
-Restaurent_Gallery.create(ourfaker);
+
+
+//Restaurent_Gallery.create(ourfaker);
+
+
 //app.use("/restaurants/:rest_id", express.static(`${__dirname}/../public`));
 
 
