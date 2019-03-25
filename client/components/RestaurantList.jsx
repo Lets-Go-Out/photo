@@ -11,8 +11,7 @@ class RestaurantList extends React.Component {
 	render(){
 		return(
           <article>
-          	
-          	 <div className="line">
+          	<div className="line">
           	 	<div>
           	 		<table id="ListTable">
           	 			<thead>

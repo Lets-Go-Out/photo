@@ -1,6 +1,5 @@
 import React from "react";
 import $ from "jquery";
-
 import Gallery from "./Gallery";
 import RestaurantList from "./RestaurantList";
 import "../../public/style.css";
@@ -15,7 +14,7 @@ class PhotoApp extends React.Component {
       data: []
     }
     this.restaurantHandler = this.restaurantHandler.bind(this);
-    this.getNames = this.getNames.bind(this);
+    this.getRestaurantNames = this.getRestaurantNames.bind(this);
   }
   
   changeView(option){
@@ -31,7 +30,7 @@ class PhotoApp extends React.Component {
     });
   }
 
-  getNames(){
+  getRestaurantNames(){
     $.ajax({
       method: "GET",
       url: "/restNames",
@@ -44,7 +43,7 @@ class PhotoApp extends React.Component {
   }
 
   componentDidMount(){
-    this.getNames();
+    this.getRestaurantNames();
   }
 
 
@@ -64,11 +63,10 @@ class PhotoApp extends React.Component {
   }
 
   render() {
-    const id2 = window.location.href.slice(34, -1);
+    //const id2 = window.location.href.slice(34, -1);
     return (
       <div>
         {this.renderView()}
-        
       </div>
     );
   }
