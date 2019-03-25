@@ -13,10 +13,10 @@ See demo at https://photo-demo.herokuapp.com/
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+- https://github.com/JISHAX/Han-DropTable-Menu.git
+- https://github.com/JISHAX/reviews.git
+- https://github.com/JISHAX/overview.git
+- https://github.com/JISHAX/reservation-table.git
 
 ## Table of Contents
 
