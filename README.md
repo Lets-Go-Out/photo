@@ -1,5 +1,5 @@
-# Project Name
->Photo-Gallery
+# Photo-Gallery
+>
 
 
 Designed and developed fully functional restaurant management solution where user can view restaurant's photo-gallery.
