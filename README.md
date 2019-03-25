@@ -20,29 +20,35 @@ See demo at https://photo-demo.herokuapp.com/
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Setup](#Setup)
 1. [Requirements](#requirements)
-1. [Development](#development)
 
-## Usage
 
-> Some usage instructions
+
+
+## To Set Up & Run Locally
+- npm install
+- npm run dev to run webpack
+- npm start to run server
+- run mongod in terminal tab, run mongo in new terminal tab
+- npm run seed to seed the database for mongoDB(seeds data for 100 records)
+
 
 ## Requirements
+-  Node 10.15.3
+-  mongoDB(or mLab)
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
 
-## Development
 
 ### Installing Dependencies
 
 From within the root directory:
-
-```sh
 npm install -g webpack
 npm install
-```
 
+## Running Tests
+- npm test to run jest unit test suite for all components 
+
+## Acknowledgements
+- Thanks to everyone on the JISHAX team for builing awesome modules that bring to life the Drop Table verison of the Open table restaurant page user experience! 
