@@ -3,6 +3,10 @@ import GalleryModal from "./GalleryModal";
 import { resImages } from "./fetch.js";
 import "../../public/style.css";
 
+
+function randomID(){
+  return Math.floor(Math.random() * 101);
+}
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +19,7 @@ class Gallery extends React.Component {
     this.fetchHandler = this.fetchHandler.bind(this);
     this.viewOpen = this.viewOpen.bind(this);
     this.state = {
-      id: "1",
+      id: randomID(),
       currentIndex: null,
       showModal: false,
       imgUrls: []

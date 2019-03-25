@@ -6,6 +6,9 @@ body {
   font-family: helvetica;
   position: relative;
 }
+
+
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -125,4 +128,39 @@ body {
   color: red;
   position:relative;
   left: 780px;
+}
+
+
+/****************************/
+#ListTable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+#ListTable td,
+#ListTable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  vertical-align: text-top;
+}
+
+#ListTable tr:hover {
+  background-color: blue;
+}
+
+#ListTable th {
+  padding-top: 10px;
+  padding-bottom: 12px;
+  text-align: left;
+ /* background-color: #4caf50;*/
+  background-color: #AF3B6E;
+  color: white;
+}
+
+a, a:visited {
+    color: #0196e3;
+    text-decoration: none;
+    outline: none;
 }

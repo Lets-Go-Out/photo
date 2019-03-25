@@ -6,6 +6,7 @@ const cors = require("cors");
 const path = require("path");
 const ourfaker = require("../database/seed.js");
 const Restaurent_Gallery = require("../database/Image.js");
+const Restaurant_Names = require("../database/restaurant.js");
 
 //app.use('/replace with my proxy', proxy('url'));
 ///
@@ -44,6 +45,16 @@ app.use("/", express.static(`${__dirname}/../public`));
 // get info of specific restaurant by id
 ///restaurants/:rest_id/gallery
 
+
+app.get("/restNames", (req, res)=>{
+  Restaurant_Names.find({}, (err, result)=>{
+    if(err){
+      res.json(0);
+    }else{
+      res.json(result);
+    }
+  });
+});
 
 app.get("/:rest_id", (req, res) => {
   Restaurant_Gallery.findOne(
