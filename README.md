@@ -1,6 +1,12 @@
 # Project Name
+>Photo-Gallery
+Designed and developed fully functional restaurant management solution where user can view restaurant's photo-gallery.
 
-> Project description
+
+![Screen Shot 2019-03-25 at 12 44 35 AM](https://user-images.githubusercontent.com/39642408/54902697-4f5c7b80-4e97-11e9-86cb-7c13867dfaae.png)
+![Screen Shot 2019-03-25 at 12 44 46 AM](https://user-images.githubusercontent.com/39642408/54902704-55eaf300-4e97-11e9-98a5-3d63be0d4be3.png)
+![Screen Shot 2019-03-25 at 12 45 05 AM](https://user-images.githubusercontent.com/39642408/54902707-584d4d00-4e97-11e9-965f-abb7ef1bd185.png)
+
 
 ## Related Projects
 
