@@ -3,6 +3,7 @@
 
 
 Designed and developed fully functional restaurant management solution where user can view restaurant's photo-gallery.
+See demo at https://photo-demo.herokuapp.com/
 
 
 ![Screen Shot 2019-03-25 at 12 44 35 AM](https://user-images.githubusercontent.com/39642408/54902697-4f5c7b80-4e97-11e9-86cb-7c13867dfaae.png)
