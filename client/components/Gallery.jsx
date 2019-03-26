@@ -18,6 +18,7 @@ class Gallery extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.fetchHandler = this.fetchHandler.bind(this);
     this.viewOpen = this.viewOpen.bind(this);
+    this.goBack = this.goBack.bind(this);
     this.state = {
       id: randomID(),
       currentIndex: null,
@@ -81,6 +82,10 @@ class Gallery extends React.Component {
     this.setState({currentIndex: 0})
   }
 
+  goBack(){
+    this.props.restClick(this.props.details, "default")
+  }
+
 
   render() {
     return (
@@ -103,6 +108,7 @@ class Gallery extends React.Component {
           handleOpenModal={this.handleOpenModal}
           handleCloseModal={this.handleCloseModal}
         />
+        <a href="#" className="view" onClick={this.goBack}>Go Back</a>
       </div>
     );
   }
