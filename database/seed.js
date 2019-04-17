@@ -31,7 +31,6 @@ let i = 0;
 const images_array = [];
 for (let j = 1; j < randomPhotoNum; j += 1) {
   const randomImageURL = Math.floor(Math.random() * 57 + 1)
-  console.log(randomImageURL)
   const data = {};
   const imageObject = {};
   imageObject.image_id = i * 100 + j;
