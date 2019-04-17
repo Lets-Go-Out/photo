@@ -145,7 +145,7 @@ let photoObjGenerator = () => {
 
 const csvFN = () => {
   let str = '';
-  for(let i = 0; i < 100001; i++) {
+  for(let i = 0; i < 250000; i++) {
     if(i !== 0) {
       str += '\n';
     }
@@ -154,9 +154,6 @@ const csvFN = () => {
   }
   return str;
 }
-
-
-
 //app.use('/replace with my proxy', proxy('url'));
 ///
 const Restaurant_Gallery = require("../database/Image.js");
@@ -204,8 +201,6 @@ app.get('/csv', (req, res) => {
     console.log('written')
   })
 })
-
-
 app.get("/restNames", (req, res)=>{
   Restaurant_Names.find({}, (err, result)=>{
     if(err){
@@ -215,6 +210,7 @@ app.get("/restNames", (req, res)=>{
     }
   });
 });
+
 
 app.get("/:rest_id", (req, res) => {
   Restaurant_Gallery.findOne(
