@@ -115,19 +115,23 @@ const restName = [
   { id: 100, name: 'Surinam Dollar generate' },
 ];
 
-
+let randomDate = () => {
+  let month = Math.floor(Math.random() * 12 + 1);
+  let day = Math.floor(Math.random() * 28 + 1);
+  return `${month}/${day}/2019`;
+}
 
 let photoObjGenerator = () => {
 	const ourfaker = [];
 	let imageCounter = 1;
-	  let randomPhotoNum = Math.floor(Math.random() * 10 + 6);
+	  let randomPhotoNum = Math.floor(Math.random() * 8 + 6);
 	  let i = 0;
 	  const images_array = [];
-	  for (let j = 1; j < randomPhotoNum; j += 1) {
+	  for (let j = 1; j < randomPhotoNum; j++) {
 	  	const randomImageURL = Math.floor(Math.random() * 57 + 1)
 	  	const data = {};
 	    const imageObject = {};
-	    imageObject.image_id = i * 100 + j;
+      imageObject.image_id = i * 100 + j;
 	    imageObject.image_url = `https://s3-us-west-2.amazonaws.com/sdc-restaurant-photos/img${randomImageURL}.jpg`;
 	    if (imageCounter === 57) {
 	      imageCounter = 0;
@@ -138,22 +142,26 @@ let photoObjGenerator = () => {
 	    images_array.push(imageObject);
 	    data.images_array = images_array;
 	    j === randomPhotoNum - 2 ? ourfaker.push(data) : null;
-	    i++
-	}
+      i++
+  }
 	return JSON.stringify(ourfaker);
 }
 
+
 const csvFN = () => {
   let str = '';
-  for(let i = 0; i < 250000; i++) {
-    if(i !== 0) {
-      str += '\n';
-    }
+  // for(let i = 0; i < 1; i++) {
+    // if(i !== 0) {
+    //   str += '\r\n';
+    // }
     const randomNameNum = Math.floor(Math.random() * 99 + 1);
-    str += restName[randomNameNum].name + ',' + photoObjGenerator();
-  }
+    str += restName[randomNameNum].name + '*' + randomDate() + '*' + photoObjGenerator();
+    str += '\n';
+  // }
   return str;
 }
+
+
 //app.use('/replace with my proxy', proxy('url'));
 ///
 const Restaurant_Gallery = require("../database/Image.js");
@@ -188,28 +196,49 @@ app.use("/", express.static(`${__dirname}/../public`));
 //   });
 // });
 
-
-
 // get info of specific restaurant by id
 ///restaurants/:rest_id/gallery
 
-// const file = fs.createWriteStream('data.csv');
 
 app.get('/csv', (req, res) => {
-  let str = csvFN();
-  fs.appendFile('data.csv', str, () => {
-    console.log('written')
-  })
-})
-app.get("/restNames", (req, res)=>{
-  Restaurant_Names.find({}, (err, result)=>{
-    if(err){
-      res.json(0);
-    }else{
-      res.json(result);
+  const file = fs.createWriteStream('./pg.csv');
+  file.setMaxListeners(100000000);
+  let i = 10000001;
+  const cb = () => {
+    console.log('FINISHED')
+  }
+  console.log('started')
+  let write = () => {
+    if(i % 10000 === 0) {
+      console.clear();
     }
-  });
-});
+    while(i >= 2) {
+      console.log(i);
+      let str = csvFN();
+      i--
+      if(i === 2) {
+        file.write(str, 'UTF8', cb);
+      } else {
+        let check = file.write(str, 'UTF8');
+        if(!check) {
+          file.once('drain', write);
+          break;
+        }
+      }
+    }
+  }
+  write();
+})
+
+// app.get("/restNames", (req, res)=>{
+//   Restaurant_Names.find({}, (err, result)=>{
+//     if(err){
+//       res.json(0);
+//     }else{
+//       res.json(result);
+//     }
+//   });
+// });
 
 
 app.get("/:rest_id", (req, res) => {
@@ -223,7 +252,20 @@ app.get("/:rest_id", (req, res) => {
       }
     }
   );
+  //this is the read route
 });
+
+app.delete('/:rest_id', (req, res) => {
+  //this is the delete rest from data base endpoint
+})
+
+app.patch('/:rest_id', (req, res) => {
+  //this is the update route
+})
+
+app.post('/', (req, res) => {
+  //this is the create route
+})
 
 app.listen(PORT, () => {
   console.log(`Now are listening on port ${PORT}`);

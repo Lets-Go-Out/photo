@@ -1,0 +1,210 @@
+2019-04-17 15:38:34.233 MST [16960] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-04-17 15:38:34.233 MST [16960] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-04-17 15:38:34.233 MST [16960] LOG:  could not bind IPv6 address "fe80::1%lo0": Address already in use
+2019-04-17 15:38:34.233 MST [16960] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-04-17 15:38:34.233 MST [16960] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-04-17 15:38:34.233 MST [16960] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-04-17 15:38:34.233 MST [16960] WARNING:  could not create listen socket for "localhost"
+2019-04-17 15:38:34.233 MST [16960] FATAL:  could not create any TCP/IP sockets
+2019-04-17 15:38:34.234 MST [16960] LOG:  database system is shut down
+2019-04-17 15:39:18.787 MST [16978] LOG:  could not bind IPv6 address "::1": Address already in use
+2019-04-17 15:39:18.787 MST [16978] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-04-17 15:39:18.787 MST [16978] LOG:  could not bind IPv6 address "fe80::1%lo0": Address already in use
+2019-04-17 15:39:18.787 MST [16978] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-04-17 15:39:18.787 MST [16978] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2019-04-17 15:39:18.787 MST [16978] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2019-04-17 15:39:18.787 MST [16978] WARNING:  could not create listen socket for "localhost"
+2019-04-17 15:39:18.787 MST [16978] FATAL:  could not create any TCP/IP sockets
+2019-04-17 15:39:18.787 MST [16978] LOG:  database system is shut down
+2019-04-17 15:40:56.795 MST [17005] LOG:  listening on IPv6 address "::1", port 5432
+2019-04-17 15:40:56.796 MST [17005] LOG:  listening on IPv6 address "fe80::1%lo0", port 5432
+2019-04-17 15:40:56.796 MST [17005] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-04-17 15:40:56.797 MST [17005] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-04-17 15:40:56.814 MST [17006] LOG:  database system was shut down at 2019-04-17 15:39:58 MST
+2019-04-17 15:40:56.822 MST [17005] LOG:  database system is ready to accept connections
+2019-04-17 15:41:53.762 MST [17019] FATAL:  database "benpoling" does not exist
+2019-04-17 15:43:01.634 MST [17024] ERROR:  syntax error at or near "CREATE" at character 33
+2019-04-17 15:43:01.634 MST [17024] STATEMENT:  CREATE USER root WITH SUPERUSER
+	CREATE USER root;
+2019-04-17 15:43:16.745 MST [17024] ERROR:  syntax error at or near "SUPERUSER" at character 1
+2019-04-17 15:43:16.745 MST [17024] STATEMENT:  SUPERUSER;
+2019-04-17 15:43:23.105 MST [17024] ERROR:  role "root" already exists
+2019-04-17 15:43:23.105 MST [17024] STATEMENT:  CREATE USER root WITH SUPERUSER;
+2019-04-17 15:53:43.260 MST [17223] ERROR:  syntax error at or near "DATA" at character 6
+2019-04-17 15:53:43.260 MST [17223] STATEMENT:  LOAD DATA LOCAL INFILE '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' INTO TABLE restaurants FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '
+	' (name,date,photoObj)
+2019-04-17 16:00:27.921 MST [17280] ERROR:  column "photoobj" of relation "restaurants" does not exist
+2019-04-17 16:00:27.921 MST [17280] STATEMENT:  copy restaurants (name,date,photoObj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' delimiter ','
+2019-04-17 16:01:50.312 MST [17292] ERROR:  extra data after last expected column
+2019-04-17 16:01:50.312 MST [17292] CONTEXT:  COPY restaurants, line 1: "Electronics Tokelau,9/1/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazo..."
+2019-04-17 16:01:50.312 MST [17292] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' delimiter ','
+2019-04-17 16:02:26.963 MST [17308] ERROR:  extra data after last expected column
+2019-04-17 16:02:26.963 MST [17308] CONTEXT:  COPY restaurants, line 1: "Electronics Tokelau,9/1/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazo..."
+2019-04-17 16:02:26.963 MST [17308] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' delimiter ','
+2019-04-17 16:03:11.032 MST [17324] ERROR:  extra data after last expected column
+2019-04-17 16:03:11.032 MST [17324] CONTEXT:  COPY restaurants, line 2: "yellow rich,1/12/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 16:03:11.032 MST [17324] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' delimiter ',' CSV HEADER
+2019-04-17 16:03:57.499 MST [17340] ERROR:  extra data after last expected column
+2019-04-17 16:03:57.499 MST [17340] CONTEXT:  COPY restaurants, line 2: "yellow rich,1/12/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 16:03:57.499 MST [17340] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' delimiter ',' CSV HEADER
+2019-04-17 16:04:41.447 MST [17377] ERROR:  extra data after last expected column
+2019-04-17 16:04:41.447 MST [17377] CONTEXT:  COPY restaurants, line 2: "Investment Account Personal Loan Account,10/16/2019,[{"images_array":[{"image_id":1,"image_url":"htt..."
+2019-04-17 16:04:41.447 MST [17377] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ',' CSV HEADER
+2019-04-17 16:05:01.928 MST [17393] ERROR:  extra data after last expected column
+2019-04-17 16:05:01.928 MST [17393] CONTEXT:  COPY restaurants, line 2: "Investment Account Personal Loan Account,10/16/2019,[{"images_array":[{"image_id":1,"image_url":"htt..."
+2019-04-17 16:05:01.928 MST [17393] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ',' CSV HEADER
+2019-04-17 16:08:02.316 MST [17551] ERROR:  extra data after last expected column
+2019-04-17 16:08:02.316 MST [17551] CONTEXT:  COPY restaurants, line 3: "Dynamic Object-based Pants,11/10/2019,thingarchitectures,2/14/2019,thing"
+2019-04-17 16:08:02.316 MST [17551] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ',' CSV HEADER
+2019-04-17 16:09:48.024 MST [17597] ERROR:  extra data after last expected column
+2019-04-17 16:09:48.024 MST [17597] CONTEXT:  COPY restaurants, line 1: "Electronics Tokelau,9/1/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazo..."
+2019-04-17 16:09:48.024 MST [17597] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' delimiter ','
+2019-04-17 16:11:27.439 MST [17656] ERROR:  extra data after last expected column
+2019-04-17 16:11:27.439 MST [17656] CONTEXT:  COPY restaurants, line 1: "Fantastic,4/5/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.com/s..."
+2019-04-17 16:11:27.439 MST [17656] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:13:17.239 MST [17680] ERROR:  extra data after last expected column
+2019-04-17 16:13:17.239 MST [17680] CONTEXT:  COPY restaurants, line 1: "Fantastic,4/5/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.com/s..."
+2019-04-17 16:13:17.239 MST [17680] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:13:41.947 MST [17695] ERROR:  extra data after last expected column
+2019-04-17 16:13:41.947 MST [17695] CONTEXT:  COPY restaurants, line 1: "Fantastic,4/5/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.com/s..."
+2019-04-17 16:13:41.947 MST [17695] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:14:25.233 MST [17737] ERROR:  extra data after last expected column
+2019-04-17 16:14:25.233 MST [17737] CONTEXT:  COPY restaurants, line 3: "Costa Rica,5/13/2019Corners Egyptian Pound dynamic,10/16/2019"
+2019-04-17 16:14:25.233 MST [17737] STATEMENT:  copy restaurants (name,date) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:14:41.931 MST [17750] ERROR:  missing data for column "photoobj"
+2019-04-17 16:14:41.931 MST [17750] CONTEXT:  COPY restaurants, line 1: "Licensed,1/18/2019"
+2019-04-17 16:14:41.931 MST [17750] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:15:37.423 MST [17806] ERROR:  extra data after last expected column
+2019-04-17 16:15:37.423 MST [17806] CONTEXT:  COPY restaurants, line 1: "Corners Egyptian Pound dynamic,10/7/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-..."
+2019-04-17 16:15:37.423 MST [17806] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:15:47.283 MST [17812] ERROR:  extra data after last expected column
+2019-04-17 16:15:47.283 MST [17812] CONTEXT:  COPY restaurants, line 1: "Corners Egyptian Pound dynamic,10/7/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-..."
+2019-04-17 16:15:47.283 MST [17812] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:16:00.915 MST [17826] ERROR:  extra data after last expected column
+2019-04-17 16:16:00.915 MST [17826] CONTEXT:  COPY restaurants, line 1: "Corners Egyptian Pound dynamic,10/7/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-..."
+2019-04-17 16:16:00.915 MST [17826] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:16:34.022 MST [17841] ERROR:  extra data after last expected column
+2019-04-17 16:16:34.022 MST [17841] CONTEXT:  COPY restaurants, line 2: "Consultant Credit Card Account back-end,9/12/2019,[{"images_array":[{"image_id":1,"image_url":"https..."
+2019-04-17 16:16:34.022 MST [17841] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' CSV HEADER delimiter ','
+2019-04-17 16:18:57.869 MST [17876] ERROR:  extra data after last expected column
+2019-04-17 16:18:57.869 MST [17876] CONTEXT:  COPY restaurants, line 1: "Corners Egyptian Pound dynamic,10/7/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-..."
+2019-04-17 16:18:57.869 MST [17876] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:19:37.862 MST [17907] ERROR:  extra data after last expected column
+2019-04-17 16:19:37.862 MST [17907] CONTEXT:  COPY restaurants, line 1: "haptic Cross-group turn-key,5/24/2019,"[{"images_array":[{"image_id":1,"image_url":"https://s3-us-we..."
+2019-04-17 16:19:37.862 MST [17907] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:20:05.208 MST [17925] ERROR:  extra data after last expected column
+2019-04-17 16:20:05.208 MST [17925] CONTEXT:  COPY restaurants, line 1: "haptic Cross-group turn-key,5/24/2019,"[{"images_array":[{"image_id":1,"image_url":"https://s3-us-we..."
+2019-04-17 16:20:05.208 MST [17925] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' delimiter ','
+2019-04-17 16:22:35.593 MST [17991] ERROR:  extra data after last expected column
+2019-04-17 16:22:35.593 MST [17991] CONTEXT:  COPY restaurants, line 1: "Games backing up,8/10/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazona..."
+2019-04-17 16:22:35.593 MST [17991] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' CSV
+2019-04-17 16:25:33.313 MST [18041] ERROR:  extra data after last expected column
+2019-04-17 16:25:33.313 MST [18041] CONTEXT:  COPY restaurants, line 1: "Games backing up,8/10/2019,[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazona..."
+2019-04-17 16:25:33.313 MST [18041] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' CSV
+2019-04-17 16:31:44.212 MST [18088] ERROR:  extra data after last expected column
+2019-04-17 16:31:44.212 MST [18088] CONTEXT:  COPY restaurants, line 1: "Games backing up,8/10/2019,"[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazon..."
+2019-04-17 16:31:44.212 MST [18088] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' CSV
+2019-04-17 16:32:28.856 MST [18098] ERROR:  extra data after last expected column
+2019-04-17 16:32:28.856 MST [18098] CONTEXT:  COPY restaurants, line 1: "Games backing up,8/10/2019,"[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazon..."
+2019-04-17 16:32:28.856 MST [18098] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' CSV QUOTE '"'
+2019-04-17 16:33:08.585 MST [18117] ERROR:  extra data after last expected column
+2019-04-17 16:33:08.585 MST [18117] CONTEXT:  COPY restaurants, line 1: "Games backing up,8/10/2019,"[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazon..."
+2019-04-17 16:33:08.585 MST [18117] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/testdata.csv' CSV DELIMITER ',' QUOTE '"'
+2019-04-17 17:02:12.593 MST [18989] ERROR:  value too long for type character varying(9)
+2019-04-17 17:02:12.593 MST [18989] CONTEXT:  COPY restaurants, line 3, column date: "10/14/2019"
+2019-04-17 17:02:12.593 MST [18989] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '^'
+2019-04-17 17:03:48.009 MST [19075] ERROR:  could not open file "/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv" for reading: No such file or directory
+2019-04-17 17:03:48.009 MST [19075] HINT:  COPY FROM instructs the PostgreSQL server process to read a file. You may want a client-side facility such as psql's \copy.
+2019-04-17 17:03:48.009 MST [19075] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '^'
+2019-04-17 17:04:36.907 MST [19144] ERROR:  extra data after last expected column
+2019-04-17 17:04:36.907 MST [19144] CONTEXT:  COPY restaurants, line 5: "circuit Jewelery^7/17/2019^[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazona..."
+2019-04-17 17:04:36.907 MST [19144] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '^'
+2019-04-17 17:06:19.010 MST [19208] ERROR:  extra data after last expected column
+2019-04-17 17:06:19.010 MST [19208] CONTEXT:  COPY restaurants, line 5: "circuit Jewelery^7/17/2019^[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazona..."
+2019-04-17 17:06:19.010 MST [19208] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '^'
+2019-04-17 17:08:16.293 MST [19288] ERROR:  extra data after last expected column
+2019-04-17 17:08:16.293 MST [19288] CONTEXT:  COPY restaurants, line 5: "circuit Jewelery^7/17/2019^[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazona..."
+2019-04-17 17:08:16.293 MST [19288] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '^'
+2019-04-17 17:08:47.370 MST [19313] ERROR:  extra data after last expected column
+2019-04-17 17:08:47.370 MST [19313] CONTEXT:  COPY restaurants, line 5: "circuit Jewelery^7/17/2019^[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazona..."
+2019-04-17 17:08:47.370 MST [19313] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '^'
+2019-04-17 17:10:19.343 MST [19366] ERROR:  value too long for type character varying(4000)
+2019-04-17 17:10:19.343 MST [19366] CONTEXT:  COPY restaurants, line 5, column photoobj: "[{images_array:[{image_id:1,image_url:https://s3-us-west-2.amazonaws.com/sdc-restaurant-photos/img21..."
+2019-04-17 17:10:19.343 MST [19366] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:10:34.220 MST [19388] ERROR:  value too long for type character varying(4200)
+2019-04-17 17:10:34.220 MST [19388] CONTEXT:  COPY restaurants, line 5, column photoobj: "[{images_array:[{image_id:1,image_url:https://s3-us-west-2.amazonaws.com/sdc-restaurant-photos/img21..."
+2019-04-17 17:10:34.220 MST [19388] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:10:43.116 MST [19401] ERROR:  value too long for type character varying(5000)
+2019-04-17 17:10:43.116 MST [19401] CONTEXT:  COPY restaurants, line 5, column photoobj: "[{images_array:[{image_id:1,image_url:https://s3-us-west-2.amazonaws.com/sdc-restaurant-photos/img21..."
+2019-04-17 17:10:43.116 MST [19401] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:11:15.722 MST [19434] ERROR:  value too long for type character varying(5000)
+2019-04-17 17:11:15.722 MST [19434] CONTEXT:  COPY restaurants, line 5, column photoobj: "[{images_array:[{image_id:1,image_url:https://s3-us-west-2.amazonaws.com/sdc-restaurant-photos/img21..."
+2019-04-17 17:11:15.722 MST [19434] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:11:33.326 MST [19469] ERROR:  value too long for type character varying(5250)
+2019-04-17 17:11:33.326 MST [19469] CONTEXT:  COPY restaurants, line 5, column photoobj: "[{images_array:[{image_id:1,image_url:https://s3-us-west-2.amazonaws.com/sdc-restaurant-photos/img21..."
+2019-04-17 17:11:33.326 MST [19469] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:12:33.747 MST [19520] ERROR:  value too long for type character varying(9)
+2019-04-17 17:12:33.747 MST [19520] CONTEXT:  COPY restaurants, line 10, column date: "10/26/2019"
+2019-04-17 17:12:33.747 MST [19520] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:12:54.473 MST [19534] ERROR:  extra data after last expected column
+2019-04-17 17:12:54.473 MST [19534] CONTEXT:  COPY restaurants, line 100: "Corners Egyptian Pound dynamic*10/10/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us..."
+2019-04-17 17:12:54.473 MST [19534] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:14:53.152 MST [19555] ERROR:  extra data after last expected column
+2019-04-17 17:14:53.152 MST [19555] CONTEXT:  COPY restaurants, line 100: "Corners Egyptian Pound dynamic*10/10/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us..."
+2019-04-17 17:14:53.152 MST [19555] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:15:35.127 MST [19617] ERROR:  extra data after last expected column
+2019-04-17 17:15:35.127 MST [19617] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:15:35.127 MST [19617] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' CSV DELIMITER '*'
+2019-04-17 17:18:03.029 MST [19659] ERROR:  extra data after last expected column
+2019-04-17 17:18:03.029 MST [19659] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:18:03.029 MST [19659] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*'
+2019-04-17 17:18:15.294 MST [19672] ERROR:  extra data after last expected column
+2019-04-17 17:18:15.294 MST [19672] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:18:15.294 MST [19672] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITERS '*'
+2019-04-17 17:18:20.593 MST [19678] ERROR:  extra data after last expected column
+2019-04-17 17:18:20.593 MST [19678] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:18:20.593 MST [19678] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*'
+2019-04-17 17:19:59.525 MST [19702] ERROR:  extra data after last expected column
+2019-04-17 17:19:59.525 MST [19702] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:19:59.525 MST [19702] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER E'*'
+2019-04-17 17:20:53.628 MST [19720] ERROR:  extra data after last expected column
+2019-04-17 17:20:53.628 MST [19720] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:20:53.628 MST [19720] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:21:01.243 MST [19735] ERROR:  extra data after last expected column
+2019-04-17 17:21:01.243 MST [19735] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:21:01.243 MST [19735] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV HEADER
+2019-04-17 17:21:44.602 MST [19750] ERROR:  extra data after last expected column
+2019-04-17 17:21:44.602 MST [19750] CONTEXT:  COPY restaurants, line 5: "teal product*4/6/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.co..."
+2019-04-17 17:21:44.602 MST [19750] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:28:04.928 MST [19849] ERROR:  extra data after last expected column
+2019-04-17 17:28:04.928 MST [19849] CONTEXT:  COPY restaurants, line 5: "Security Rubber Bacon*6/10/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.am..."
+2019-04-17 17:28:04.928 MST [19849] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:28:31.539 MST [19865] ERROR:  extra data after last expected column
+2019-04-17 17:28:31.539 MST [19865] CONTEXT:  COPY restaurants, line 5: "Security Rubber Bacon*6/10/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.am..."
+2019-04-17 17:28:31.539 MST [19865] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:29:20.308 MST [19914] ERROR:  extra data after last expected column
+2019-04-17 17:29:20.308 MST [19914] CONTEXT:  COPY restaurants, line 1: "Security Rubber Bacon*6/10/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.am..."
+2019-04-17 17:29:20.308 MST [19914] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:30:47.344 MST [19941] ERROR:  missing data for column "date"
+2019-04-17 17:30:47.344 MST [19941] CONTEXT:  COPY restaurants, line 1: ""
+2019-04-17 17:30:47.344 MST [19941] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:31:26.779 MST [19972] ERROR:  extra data after last expected column
+2019-04-17 17:31:26.779 MST [19972] CONTEXT:  COPY restaurants, line 5: "Fantastic*9/16/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.com/..."
+2019-04-17 17:31:26.779 MST [19972] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:32:15.600 MST [19999] ERROR:  extra data after last expected column
+2019-04-17 17:32:15.600 MST [19999] CONTEXT:  COPY restaurants, line 5: "redundant*5/16/2019*[{"images_array":[{"image_id":1,"image_url":"https://s3-us-west-2.amazonaws.com/..."
+2019-04-17 17:32:15.600 MST [19999] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 17:48:35.048 MST [20389] ERROR:  value too long for type character varying(9)
+2019-04-17 17:48:35.048 MST [20389] CONTEXT:  COPY restaurants, line 8, column date: "11/20/2019"
+2019-04-17 17:48:35.048 MST [20389] STATEMENT:  copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV
+2019-04-17 19:12:27.719 MST [17181] ERROR:  canceling statement due to user request
+2019-04-17 19:12:27.719 MST [17181] STATEMENT:  TABLE restaurants;
+2019-04-17 19:18:39.300 MST [21608] LOG:  incomplete startup packet
+2019-04-17 19:20:10.275 MST [21641] LOG:  incomplete startup packet
+2019-04-17 19:20:26.020 MST [21651] LOG:  incomplete startup packet
+2019-04-17 19:20:38.267 MST [21660] LOG:  incomplete startup packet
+2019-04-17 19:20:55.754 MST [21677] LOG:  incomplete startup packet
+2019-04-17 19:35:39.908 MST [17005] LOG:  received smart shutdown request
+2019-04-17 19:35:39.916 MST [17005] LOG:  background worker "logical replication launcher" (PID 17012) exited with exit code 1
+2019-04-17 19:35:39.917 MST [17007] LOG:  shutting down
+2019-04-17 19:35:40.448 MST [17005] LOG:  database system is shut down
