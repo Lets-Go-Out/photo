@@ -26,17 +26,20 @@ const restaurant = sequelize.define('restaurants', {
   timestamps: false,
 });
 
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
   .then(() => {
     console.log(`Database & tables created!`)
 
   // let quer = `LOAD DATA LOCAL INFILE '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' INTO TABLE restaurants FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' (name,date,photoObj)`;
   let quer = `copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV`;
+  let quer = 'SELECT * FROM restaurants WHERE id=10000000'
   sequelize.query(quer).then((data) => console.log(data))
 });
 
 
 module.exports = sequelize;
+
+//vanilla script for postgres insertiong, might utilize later
 
 // const { Pool } = require('pg');
 
@@ -88,12 +91,3 @@ module.exports = sequelize;
 //     console.log(data);
 //   }
 // })
-
-// sequelize.sync({ force: true })
-//   .then(() => {
-//     console.log(`Database & tables created!`)
-
-//   // let quer = `LOAD DATA LOCAL INFILE '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' INTO TABLE restaurants FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' (name,date,photoObj)`;
-// let quer = `copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV`;
-//   sequelize.query(quer).then((data) => console.log(data))
-// });

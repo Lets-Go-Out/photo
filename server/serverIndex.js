@@ -7,9 +7,9 @@ const path = require("path");
 const ourfaker = require("../database/seed.js");
 const Restaurent_Gallery = require("../database/Image.js");
 const Restaurant_Names = require("../database/restaurant.js");
-const mysqlDB = require('../database/mysql/mysqDB.js')
+// const postGresDB = require('../database/postGres/postGres.js')
+const cassandra = require('../database/cassandra/cassandra.js')
 const fs = require('fs');
-const createCsvWriter = require('csv-writer').createArrayCsvWriter;
 
 
 const restName = [
@@ -155,7 +155,7 @@ const csvFN = () => {
     //   str += '\r\n';
     // }
     const randomNameNum = Math.floor(Math.random() * 99 + 1);
-    str += restName[randomNameNum].name + '*' + randomDate() + '*' + photoObjGenerator();
+    str += restName[randomNameNum].name + ',' + randomDate() + ',""' + photoObjGenerator();
     str += '\n';
   // }
   return str;
@@ -201,9 +201,9 @@ app.use("/", express.static(`${__dirname}/../public`));
 
 
 app.get('/csv', (req, res) => {
-  const file = fs.createWriteStream('./pg.csv');
+  const file = fs.createWriteStream('./testdata.csv');
   file.setMaxListeners(100000000);
-  let i = 10000001;
+  let i = 2;
   const cb = () => {
     console.log('FINISHED')
   }
