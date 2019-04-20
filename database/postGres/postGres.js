@@ -4,7 +4,7 @@ const mySQL = require('mysql');
 const sequelize = new Sequelize('SDC', 'root', 'password', {
   host: 'localhost',
   port: 5432,
-  dialect: 'postgres',
+  dialect: 'postgres'
 });
 
 sequelize
@@ -15,34 +15,33 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
-const restaurant = sequelize.define('restaurants', {
-  // attributes
-  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-  name: { type: Sequelize.STRING(50) },
-  date: { type: Sequelize.STRING(10) },
-  photoobj: { type: Sequelize.STRING(4000) },
-}, {
-  // options
-  timestamps: false,
-});
+const restaurant = sequelize.define(
+  'restaurants',
+  {
+    // attributes
+    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+    name: { type: Sequelize.STRING(50) },
+    date: { type: Sequelize.STRING(10) },
+    photoobj: { type: Sequelize.STRING(4000) }
+  },
+  {
+    // options
+    timestamps: false
+  }
+);
 
-sequelize.sync({ force: false })
-  .then(() => {
-    console.log(`Database & tables created!`)
+sequelize.sync({ force: false }).then(() => {
+  console.log(`Database & tables created!`);
 
-  // let quer = `LOAD DATA LOCAL INFILE '/Users/benpoling/documents/ghrphx01/SDC/photo/data.csv' INTO TABLE restaurants FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' (name,date,photoObj)`;
   let quer = `copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV`;
-  let quer = 'SELECT * FROM restaurants WHERE id=10000000'
-  sequelize.query(quer).then((data) => console.log(data))
+  sequelize.query(quer).then(data => console.log(data));
 });
-
 
 module.exports = sequelize;
 
 //vanilla script for postgres insertiong, might utilize later
 
 // const { Pool } = require('pg');
-
 
 // const pool = new Pool({
 //   user: 'root',
