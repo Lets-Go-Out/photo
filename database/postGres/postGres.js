@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('sdc', 'postgres', 'password', {
-  host: '54.214.226.242',
+const sequelize = new Sequelize('SDC', 'root', 'password', {
+  host: 'localhost',
   port: 5432,
   dialect: 'postgres'
 });

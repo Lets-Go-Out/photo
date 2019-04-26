@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const faker = require('faker');
@@ -16,6 +17,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, `../public`)));
 
+app.get('/loaderio-a19109ac61015c0029ec1bfba0e1a603.txt', (req, res) => {
+  console.log('HDIOWAJDIOJAWOIDAHIDOAWJDIO');
+  res.sendFile(
+    '/Users/benpoling/documents/ghrphx01/sdc/photo/loaderio-a19109ac61015c0029ec1bfba0e1a603.txt'
+  );
+});
+app.get('/loaderio-a19109ac61015c0029ec1bfba0e1a603.html', (req, res) => {
+  console.log('HDIOWAJDIOJAWOIDAHIDOAWJDIO');
+  res.sendFile(
+    '/Users/benpoling/documents/ghrphx01/sdc/photo/loaderio-a19109ac61015c0029ec1bfba0e1a603.txt'
+  );
+});
+app.get('/loaderio-a19109ac61015c0029ec1bfba0e1a603/', (req, res) => {
+  console.log('HDIOWAJDIOJAWOIDAHIDOAWJDIO');
+  res.sendFile(
+    '/Users/benpoling/documents/ghrphx01/sdc/photo/loaderio-a19109ac61015c0029ec1bfba0e1a603.txt'
+  );
+});
 app.get('/restNames', (req, res) => {
   let quer = 'SELECT * FROM restaurants LIMIT 100';
   postGresDB.query(quer).then(data => res.send(data[data.length - 1].rows));
@@ -24,7 +43,7 @@ app.get('/restNames', (req, res) => {
 app.get('/:rest_id', (req, res) => {
   //get single route
   let id = req.params.rest_id;
-  if (typeof Number(id) === 'number') {
+  if (isNaN(id) !== true) {
     let quer = 'SELECT * FROM restaurants WHERE id=' + id;
     postGresDB.query(quer).then(data => {
       if (data[0].length === 0) {
