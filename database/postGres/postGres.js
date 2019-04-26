@@ -34,7 +34,7 @@ const restaurant = sequelize.define(
 // sequelize.sync({ force: false }).then(() => {
 //   console.log(`Database & tables created!`);
 
-//   let quer = `copy restaurants (name,date,photoobj) from '/home/ec2-user/pg.csv' DELIMITER '*' CSV`;
+//   let quer = `copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/sdc/photo' DELIMITER '*' CSV` QUOTE '^';
 //   sequelize.query(quer).then(data => console.log(data));
 // });
 

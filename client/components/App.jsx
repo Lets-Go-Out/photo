@@ -37,7 +37,6 @@ class PhotoApp extends React.Component {
       method: 'GET',
       url: 'http://localhost:3004/restNames',
       success: data => {
-        console.log(data[0].photoobj);
         this.setState({
           data: data
         });
@@ -57,9 +56,6 @@ class PhotoApp extends React.Component {
       return (
         <div>
           <RestaurantList data={data} handleClick={this.restaurantHandler} />
-          <button>PATCH TEST</button>
-          <button>DELETE</button>
-          <button>CREATE</button>
         </div>
       );
     } else if (view === 'galleryInfo') {

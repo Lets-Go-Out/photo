@@ -13,7 +13,8 @@
     "start": "nodemon server/serverIndex.js",
     "seed": "node ./database/seed.js",
     "lint": "eslint --ignore-path .gitignore . --fix",
-    "test": "jest --coverage --"
+    "test": "jest --coverage --",
+    "prod": "webpack --mode production"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
