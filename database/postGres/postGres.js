@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
-const mySQL = require('mysql');
 
-const sequelize = new Sequelize('SDC', 'root', 'password', {
-  host: 'localhost',
+const sequelize = new Sequelize('sdc', 'postgres', 'password', {
+  host: '54.214.226.242',
   port: 5432,
   dialect: 'postgres'
 });
@@ -30,12 +29,14 @@ const restaurant = sequelize.define(
   }
 );
 
-sequelize.sync({ force: false }).then(() => {
-  console.log(`Database & tables created!`);
+// let quer = 'SELECT * FROM restaurants WHERE id=10000000';
+// sequelize.query(quer).then(data => console.log(data));
+// sequelize.sync({ force: false }).then(() => {
+//   console.log(`Database & tables created!`);
 
-  let quer = `copy restaurants (name,date,photoobj) from '/Users/benpoling/documents/ghrphx01/SDC/photo/pg.csv' DELIMITER '*' CSV`;
-  sequelize.query(quer).then(data => console.log(data));
-});
+//   let quer = `copy restaurants (name,date,photoobj) from '/home/ec2-user/pg.csv' DELIMITER '*' CSV`;
+//   sequelize.query(quer).then(data => console.log(data));
+// });
 
 module.exports = sequelize;
 

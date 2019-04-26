@@ -1,10 +1,9 @@
-import React from "react";
-import GalleryModal from "./GalleryModal";
-import { resImages } from "./fetch.js";
-import "../../public/style.css";
+import React from 'react';
+import GalleryModal from './GalleryModal';
+// import { resImages } from './fetch.js';
+import '../../public/style.css';
 
-
-function randomID(){
+function randomID() {
   return Math.floor(Math.random() * 101);
 }
 class Gallery extends React.Component {
@@ -23,21 +22,23 @@ class Gallery extends React.Component {
       id: randomID(),
       currentIndex: null,
       showModal: false,
-      imgUrls: []
+      imgUrls: this.props.imgs.images_array
     };
   }
 
-  nextRestaurant() {
-    resImages(id.toString(), this.fetchHandler);
+  componentDidMount() {
+    // resImages(this.state.id, this.fetchHandler);
   }
+
   fetchHandler(rest_id, restimages) {
     let obj = Object.assign({}, this.state);
     obj.id = rest_id;
     obj.imgUrls = restimages.images_array;
     this.setState(obj);
   }
-  componentDidMount() {
-    resImages(this.state.id, this.fetchHandler);
+
+  nextRestaurant() {
+    // resImages(id.toString(), this.fetchHandler);
   }
 
   openModal(index) {
@@ -59,13 +60,7 @@ class Gallery extends React.Component {
   renderImageContent(src, index) {
     return (
       <div onClick={event => this.openModal(index)} key={index}>
-        <img
-          alt={src.description}
-          src={src.image_url}
-          key={src._id}
-          width="280"
-          height="180"
-        />
+        <img alt={src.description} src={src.image_url} key={src._id} width="280" height="180" />
       </div>
     );
   }
@@ -78,37 +73,39 @@ class Gallery extends React.Component {
     this.setState({ showModal: false });
   }
 
-  viewOpen(){
-    this.setState({currentIndex: 0})
+  viewOpen() {
+    this.setState({ currentIndex: 0 });
   }
 
-  goBack(){
-    this.props.restClick(this.props.details, "default")
+  goBack() {
+    console.log('did i make it here???????');
+    this.props.restClick(this.props.details, 'default');
   }
-
 
   render() {
     return (
       <div>
-        <h2>Photos</h2><a href="#" className="view" onClick={this.viewOpen}>View more</a>
-        <div className="gallery-grid">
-          {this.state.imgUrls.map(this.renderImageContent)}
-        </div>
+        <h2>Photos</h2>
+        <a href="#" className="view" onClick={this.viewOpen}>
+          View more
+        </a>
+        <div className="gallery-grid">{this.state.imgUrls.map(this.renderImageContent)}</div>
         <GalleryModal
           closeModal={this.closeModal}
           findPrev={this.findPrev}
           findNext={this.findNext}
           hasPrev={this.state.currentIndex > 0}
           hasNext={
-            this.state.currentIndex + 1 &&
-            this.state.currentIndex + 1 < this.state.imgUrls.length
+            this.state.currentIndex + 1 && this.state.currentIndex + 1 < this.state.imgUrls.length
           }
           src={this.state.imgUrls[this.state.currentIndex]}
           showModal={this.state.showModal}
           handleOpenModal={this.handleOpenModal}
           handleCloseModal={this.handleCloseModal}
         />
-        <a href="#" className="view" onClick={this.goBack}>Go Back</a>
+        <a href="#" className="view" onClick={this.goBack}>
+          Go Back
+        </a>
       </div>
     );
   }

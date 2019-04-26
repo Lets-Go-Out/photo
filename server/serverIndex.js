@@ -4,12 +4,8 @@ const faker = require('faker');
 var proxy = require('express-http-proxy');
 const cors = require('cors');
 const path = require('path');
-const ourfaker = require('../database/seed.js');
-const Restaurent_Gallery = require('../database/Image.js');
-const Restaurant_Names = require('../database/restaurant.js');
-// const postGresDB = require('../database/postGres/postGres.js')
-const cassandra = require('../database/cassandra/cassandra.js');
-const fs = require('fs');
+const postGresDB = require('../database/postGres/postGres.js');
+// const cassandra = require('../database/cassandra/cassandra.js');
 
 const app = express();
 const PORT = process.env.PORT || '3004';
@@ -18,74 +14,57 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(express.static(path.join(__dirname, `../public`)));
+app.use(express.static(path.join(__dirname, `../public`)));
 
-app.get('/csv', (req, res) => {
-  const file = fs.createWriteStream('./testdata.csv');
-  file.setMaxListeners(100000000);
-  let i = 10000000;
-  const cb = () => {
-    console.log('FINISHED');
-  };
-  console.log('started');
-  let write = () => {
-    if (i % 1000000 === 0) {
-      console.clear();
-    }
-    while (i >= 1) {
-      console.log(i);
-      if (i === 10000000) {
-        file.write('id*date*name*photoobj \n', 'UTF8');
-      }
-      let id = i + '*';
-      let str = csvFN();
-      str = id.concat(str);
-      i--;
-      if (i === 1) {
-        file.write(str, 'UTF8', cb);
-      } else {
-        const check = file.write(str, 'UTF8');
-        if (!check) {
-          file.once('drain', write);
-          break;
-        }
-      }
-    }
-  };
-  write();
+app.get('/restNames', (req, res) => {
+  let quer = 'SELECT * FROM restaurants LIMIT 100';
+  postGresDB.query(quer).then(data => res.send(data[data.length - 1].rows));
 });
 
-// app.get("/restNames", (req, res)=>{
-//   Restaurant_Names.find({}, (err, result)=>{
-//     if(err){
-//       res.json(0);
-//     }else{
-//       res.json(result);
-//     }
-//   });
-// });
-
 app.get('/:rest_id', (req, res) => {
-  //findOne({ res_id: req.params.rest_id }, (err, response) => {
-  //   if (err) {
-  //     res.json(0);
-  //   } else {
-  //     res.json(response);
-  //   }
-  // });
-  //this is the read route
+  //get single route
+  let id = req.params.rest_id;
+  if (typeof Number(id) === 'number') {
+    let quer = 'SELECT * FROM restaurants WHERE id=' + id;
+    postGresDB.query(quer).then(data => {
+      if (data[0].length === 0) {
+        res.status(404);
+        res.send(data[0]);
+      } else {
+        res.send(data[0][0]);
+      }
+    });
+  }
 });
 
 app.delete('/:rest_id', (req, res) => {
   //this is the delete rest from data base endpoint
+  let id = req.params.rest_id;
+  if (typeof Number(id) === 'number') {
+    let quer = 'DELETE FROM restaurants WHERE id=' + id;
+    postGresDB.query(quer).then(data => res.send(data));
+  }
 });
 
 app.patch('/:rest_id', (req, res) => {
   //this is the update route
+  let id = req.params.rest_id;
+  if (typeof Number(id) === 'number') {
+    let name = req.body.name;
+    let date = req.body.date;
+    let photoobj = JSON.stringify(req.body.photoobj);
+    let quer = `UPDATE restaurants SET name = '${name}', date = '${date}', photoobj = '${photoobj}' WHERE id=${id};`;
+    postGresDB.query(quer).then(data => console.log(data, 'THIS IS THE DATA MMOOOFOOFFF'));
+  }
 });
 
 app.post('/', (req, res) => {
   //this is the create route
+  let name = req.body.name;
+  let date = req.body.date;
+  let photoobj = JSON.stringify(req.body.photoobj);
+  let quer = `INSERT INTO restaurants (name,date,photoobj) VALUES('${name}','${date}','${photoobj}')`;
+  postGresDB.query(quer).then(data => res.send(data));
 });
 
 app.listen(PORT, () => {

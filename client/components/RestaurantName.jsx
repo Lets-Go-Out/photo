@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 
 class RestaurantName extends React.Component {
   render() {
+    let name = this.props.details.name;
+    console.log(this.props.details.photoobj[0]);
+    let photos = JSON.parse(this.props.details.photoobj)[0];
     return (
       <tr>
-        <td>{this.props.details.restName}</td>
+        <td>{name}</td>
         <td>
-          <a onClick={() => this.props.restClick(this.props.details, 'galleryInfo')}>
-            check pictures
-          </a>
+          <a onClick={() => this.props.restClick(name, 'galleryInfo', photos)}>check pictures</a>
         </td>
       </tr>
     );

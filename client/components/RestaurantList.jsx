@@ -22,11 +22,7 @@ class RestaurantList extends React.Component {
               </thead>
               <tbody>
                 {this.props.data.map(rest => (
-                  <RestaurantName
-                    key={rest._id}
-                    details={rest}
-                    restClick={this.props.handleClick}
-                  />
+                  <RestaurantName key={rest.id} details={rest} restClick={this.props.handleClick} />
                 ))}
               </tbody>
             </table>

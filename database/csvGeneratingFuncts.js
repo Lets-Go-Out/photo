@@ -141,3 +141,5 @@ const csvFN = () => {
   str += '\n';
   return str;
 };
+
+module.exports = csvFN;

@@ -10,6 +10,7 @@ class PhotoApp extends React.Component {
     this.state = {
       view: 'default',
       lastRest: '',
+      imgs: null,
       data: []
     };
     this.restaurantHandler = this.restaurantHandler.bind(this);
@@ -22,28 +23,33 @@ class PhotoApp extends React.Component {
     });
   }
 
-  restaurantHandler(rest, option) {
+  restaurantHandler(rest, option, photos) {
+    console.log(option);
     this.setState({
       view: option,
-      lastRest: rest
+      lastRest: rest,
+      imgs: photos
     });
   }
 
   getRestaurantNames() {
-    // $.ajax({
-    //   method: 'GET',
-    //   url: '/restNames',
-    //   success: data => {
-    //     this.setState({
-    //       data: data
-    //     });
-    //   }
-    // });
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:3004/restNames',
+      success: data => {
+        console.log(data[0].photoobj);
+        this.setState({
+          data: data
+        });
+      }
+    });
   }
 
   componentDidMount() {
     this.getRestaurantNames();
   }
+
+  deleteFunc() {}
 
   renderView() {
     const { view, data } = this.state;
@@ -51,10 +57,19 @@ class PhotoApp extends React.Component {
       return (
         <div>
           <RestaurantList data={data} handleClick={this.restaurantHandler} />
+          <button>PATCH TEST</button>
+          <button>DELETE</button>
+          <button>CREATE</button>
         </div>
       );
     } else if (view === 'galleryInfo') {
-      return <Gallery desc={this.state.lastRest} restClick={this.restaurantHandler} />;
+      return (
+        <Gallery
+          imgs={this.state.imgs}
+          desc={this.state.lastRest}
+          restClick={this.restaurantHandler}
+        />
+      );
     }
   }
 
