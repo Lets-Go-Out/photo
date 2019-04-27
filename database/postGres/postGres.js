@@ -1,33 +1,42 @@
 const Sequelize = require('sequelize');
+const { Pool } = require('pg');
 
-const sequelize = new Sequelize('SDC', 'root', 'password', {
-  host: 'localhost',
-  port: 5432,
-  dialect: 'postgres'
+const pool = new Pool({
+  user: 'postgres',
+  database: 'sdc',
+  password: 'password',
+  host: '35.163.71.119',
+  port: 5432
 });
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-const restaurant = sequelize.define(
-  'restaurants',
-  {
-    // attributes
-    id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-    name: { type: Sequelize.STRING(50) },
-    date: { type: Sequelize.STRING(10) },
-    photoobj: { type: Sequelize.STRING(4000) }
-  },
-  {
-    // options
-    timestamps: false
-  }
-);
+// const sequelize = new Sequelize('sdc', 'postgres', 'password', {
+//   host: '35.163.71.119',
+//   port: 5432,
+//   dialect: 'postgres'
+// });
+
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch(err => {
+//     console.error('Unable to connect to the database:', err);
+//   });
+// const restaurant = sequelize.define(
+//   'restaurants',
+//   {
+//     // attributes
+//     id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+//     name: { type: Sequelize.STRING(50) },
+//     date: { type: Sequelize.STRING(10) },
+//     photoobj: { type: Sequelize.STRING(4000) }
+//   },
+//   {
+//     // options
+//     timestamps: false
+//   }
+// );
 
 // let quer = 'SELECT * FROM restaurants WHERE id=10000000';
 // sequelize.query(quer).then(data => console.log(data));
@@ -38,7 +47,7 @@ const restaurant = sequelize.define(
 //   sequelize.query(quer).then(data => console.log(data));
 // });
 
-module.exports = sequelize;
+module.exports = pool;
 
 //vanilla script for postgres insertiong, might utilize later
 

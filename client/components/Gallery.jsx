@@ -78,7 +78,8 @@ class Gallery extends React.Component {
   }
 
   goBack() {
-    console.log('did i make it here???????');
+    console.log(this.props.details);
+
     this.props.restClick(this.props.details, 'default');
   }
 

@@ -23,20 +23,32 @@ class PhotoApp extends React.Component {
     });
   }
 
-  restaurantHandler(rest, option, photos) {
-    console.log(option);
-    this.setState({
-      view: option,
-      lastRest: rest,
-      imgs: photos
-    });
+  restaurantHandler(rest, option, id) {
+    if (option === 'galleryInfo') {
+      $.ajax({
+        method: 'GET',
+        url: `http://ec2-54-213-162-147.us-west-2.compute.amazonaws.com:3004/${id}`
+      }).then(photos => {
+        this.setState({
+          view: option,
+          lastRest: rest,
+          imgs: photos[0].photoobj[0]
+        });
+      });
+    } else {
+      this.setState({
+        view: option,
+        lastRest: rest
+      });
+    }
   }
 
   getRestaurantNames() {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3004/restNames',
+      url: 'http://ec2-54-213-162-147.us-west-2.compute.amazonaws.com:3004/restNames',
       success: data => {
+        console.log(data);
         this.setState({
           data: data
         });
@@ -48,8 +60,6 @@ class PhotoApp extends React.Component {
     this.getRestaurantNames();
   }
 
-  deleteFunc() {}
-
   renderView() {
     const { view, data } = this.state;
     if (view === 'default') {
@@ -59,6 +69,7 @@ class PhotoApp extends React.Component {
         </div>
       );
     } else if (view === 'galleryInfo') {
+      console.log(this.state.imgs, 'IMAGES BEFORE THE GALLERY MOUNTS');
       return (
         <Gallery
           imgs={this.state.imgs}
