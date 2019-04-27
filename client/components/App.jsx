@@ -29,6 +29,7 @@ class PhotoApp extends React.Component {
         method: 'GET',
         url: `http://ec2-54-213-162-147.us-west-2.compute.amazonaws.com:3004/${id}`
       }).then(photos => {
+        console.log(photos);
         this.setState({
           view: option,
           lastRest: rest,
@@ -48,7 +49,6 @@ class PhotoApp extends React.Component {
       method: 'GET',
       url: 'http://ec2-54-213-162-147.us-west-2.compute.amazonaws.com:3004/restNames',
       success: data => {
-        console.log(data);
         this.setState({
           data: data
         });
